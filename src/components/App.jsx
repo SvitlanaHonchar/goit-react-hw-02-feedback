@@ -22,7 +22,7 @@ class App extends Component {
       >
         <FeedbackOptions
           options={Object.entries(this.state)}
-          onLeaveFeedback={''}
+          // onLeaveFeedback={''}
         />
       </div>
     );
