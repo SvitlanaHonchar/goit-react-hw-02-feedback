@@ -6,7 +6,7 @@ class FeedbackOptions extends Component {
   }
 
   render() {
-    const { options, onLeaveFeedback } = this.props;
+    const { options } = this.props;
     console.log(options);
     return (
       <div>
