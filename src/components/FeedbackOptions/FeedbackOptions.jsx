@@ -8,15 +8,15 @@ class FeedbackOptions extends Component {
     return (
       <div>
         <ul>
-          <button type="button" onClick={onLeaveFeedback}>
-            Good
-          </button>
-          <button type="button" onClick={onLeaveFeedback}>
-            Neutral
-          </button>
-          <button type="button" onClick={onLeaveFeedback}>
-            Bad
-          </button>
+          {options.map((option, idx) => {
+            return (
+              <li key={idx}>
+                <button type="button" onClick={onLeaveFeedback}>
+                  {option.charAt(0).toUpperCase() + option.slice(1)}
+                </button>
+              </li>
+            );
+          })}
         </ul>
       </div>
     );
