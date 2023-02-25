@@ -1,24 +1,28 @@
 import React, { Component } from 'react';
 
 class FeedbackOptions extends Component {
-  handleBtnClick(event) {
-    console.log(event.target.textContent);
-  }
-
   render() {
-    const { options } = this.props;
-    console.log(options);
+    const {
+      options,
+      onLeaveFeedback,
+      countTotalFeedback,
+      countPositiveFeedbackPercentage,
+    } = this.props;
+    const total = countTotalFeedback();
+    const positiveFeedbackPercentage =
+      countPositiveFeedbackPercentage().toFixed(0);
+    // console.log(options);
     return (
       <div>
         <h2>Please leave feedback</h2>
         <ul>
-          <button type="button" onClick={this.handleBtnClick}>
+          <button type="button" onClick={onLeaveFeedback}>
             Good
           </button>
-          <button type="button" onClick={this.handleBtnClick}>
+          <button type="button" onClick={onLeaveFeedback}>
             Neutral
           </button>
-          <button type="button" onClick={this.handleBtnClick}>
+          <button type="button" onClick={onLeaveFeedback}>
             Bad
           </button>
         </ul>
@@ -32,6 +36,10 @@ class FeedbackOptions extends Component {
               </li>
             );
           })}
+          <li>Total: {total}</li>
+          <li>
+            Positive Feedback: {total > 0 ? positiveFeedbackPercentage : '0'}%
+          </li>
         </ul>
       </div>
     );

@@ -8,6 +8,28 @@ class App extends Component {
     bad: 0,
   };
 
+  handleBtnClick = event => {
+    // console.log(event.target.textContent);
+    this.setState(prevState => {
+      return {
+        [event.target.textContent.toLowerCase()]:
+          prevState[event.target.textContent.toLowerCase()] + 1,
+      };
+    });
+  };
+
+  countTotalFeedback = () => {
+    return Object.values(this.state).reduce((total, value) => {
+      return total + value;
+    }, 0);
+  };
+
+  countPositiveFeedbackPercentage = () => {
+    const total = this.countTotalFeedback();
+    const positiveFeedbackPercentage = (this.state.good / total) * 100;
+    return positiveFeedbackPercentage;
+  };
+
   render() {
     return (
       <div
@@ -21,8 +43,10 @@ class App extends Component {
         }}
       >
         <FeedbackOptions
+          onLeaveFeedback={this.handleBtnClick}
           options={Object.entries(this.state)}
-          // onLeaveFeedback={''}
+          countTotalFeedback={this.countTotalFeedback}
+          countPositiveFeedbackPercentage={this.countPositiveFeedbackPercentage}
         />
       </div>
     );
