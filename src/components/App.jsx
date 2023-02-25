@@ -1,5 +1,7 @@
 import FeedbackOptions from './FeedbackOptions/FeedbackOptions';
 import React, { Component } from 'react';
+import Statistics from './Statistics/Statistics';
+import Section from './Section/Section';
 
 class App extends Component {
   state = {
@@ -36,18 +38,28 @@ class App extends Component {
         style={{
           height: '100vh',
           display: 'flex',
+          flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
           fontSize: 26,
           color: '#010101',
         }}
       >
-        <FeedbackOptions
-          onLeaveFeedback={this.handleBtnClick}
-          options={Object.entries(this.state)}
-          countTotalFeedback={this.countTotalFeedback}
-          countPositiveFeedbackPercentage={this.countPositiveFeedbackPercentage}
-        />
+        <Section title="Please leave feedback">
+          <FeedbackOptions
+            onLeaveFeedback={this.handleBtnClick}
+            options={Object.entries(this.state)}
+          />
+        </Section>
+        <Section title="Statistics">
+          <Statistics
+            good={this.state.good}
+            neutral={this.state.neutral}
+            bad={this.state.bad}
+            total={this.countTotalFeedback}
+            positivePercentage={this.countPositiveFeedbackPercentage}
+          />
+        </Section>
       </div>
     );
   }
