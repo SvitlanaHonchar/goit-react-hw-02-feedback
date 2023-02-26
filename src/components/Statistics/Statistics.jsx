@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { StyledUl, StyledLi } from './Statistics,styled';
 
 class Statistics extends Component {
   render() {
@@ -8,16 +9,16 @@ class Statistics extends Component {
     const positiveFeedbackPercentage = positivePercentage().toFixed(0);
     return (
       <div>
-        <ul>
-          <li>Good: {good}</li>
-          <li>Neutral: {neutral}</li>
-          <li>Bad: {bad}</li>
-          <li>Total: {totalFeedback}</li>
-          <li>
+        <StyledUl>
+          <StyledLi>Good: {good}</StyledLi>
+          <StyledLi>Neutral: {neutral}</StyledLi>
+          <StyledLi>Bad: {bad}</StyledLi>
+          <StyledLi>Total: {totalFeedback}</StyledLi>
+          <StyledLi>
             Positive Feedback:{' '}
             {totalFeedback > 0 ? positiveFeedbackPercentage : '0'}%
-          </li>
-        </ul>
+          </StyledLi>
+        </StyledUl>
       </div>
     );
   }

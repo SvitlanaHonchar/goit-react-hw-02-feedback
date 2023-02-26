@@ -41,7 +41,8 @@ class App extends Component {
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
-          alignItems: 'center',
+          // alignItems: 'center',
+          marginLeft: '30px',
           fontSize: 26,
           color: '#010101',
         }}

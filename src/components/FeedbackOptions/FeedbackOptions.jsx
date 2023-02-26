@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { StyledLi, StyledUl } from './FeedbackOptions.styled';
 
 class FeedbackOptions extends Component {
   render() {
@@ -8,17 +9,17 @@ class FeedbackOptions extends Component {
     // console.log(options);
     return (
       <div>
-        <ul>
+        <StyledUl>
           {options.map((option, idx) => {
             return (
-              <li key={idx}>
+              <StyledLi key={idx}>
                 <button type="button" onClick={onLeaveFeedback}>
                   {option.charAt(0).toUpperCase() + option.slice(1)}
                 </button>
-              </li>
+              </StyledLi>
             );
           })}
-        </ul>
+        </StyledUl>
       </div>
     );
   }
