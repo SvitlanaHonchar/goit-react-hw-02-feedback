@@ -11,12 +11,11 @@ class App extends Component {
     bad: 0,
   };
 
-  handleBtnClick = event => {
+  handleBtnClick = option => {
     // console.log(event.target.textContent);
     this.setState(prevState => {
       return {
-        [event.target.textContent.toLowerCase()]:
-          prevState[event.target.textContent.toLowerCase()] + 1,
+        [option]: prevState[option] + 1,
       };
     });
   };

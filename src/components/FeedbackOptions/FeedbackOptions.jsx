@@ -13,7 +13,7 @@ class FeedbackOptions extends Component {
           {options.map((option, idx) => {
             return (
               <StyledLi key={idx}>
-                <button type="button" onClick={onLeaveFeedback}>
+                <button type="button" onClick={() => onLeaveFeedback(option)}>
                   {option.charAt(0).toUpperCase() + option.slice(1)}
                 </button>
               </StyledLi>
